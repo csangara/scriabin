@@ -353,7 +353,7 @@ BinDatasets <- function(seu, split.by = "time.orig", dims = 1:50,
                                                                        sigtest_cell_types = sigtest_cell_types))
         return(sum(random_distribution>0.05)<5)
       }))
-      browser()
+
       names(bin_p) <- unique(seu_oi$bins)
 
       anno.overlap <- t(reshape2::dcast(as.data.frame(table(as.character(seu_oi$bins),
@@ -467,7 +467,7 @@ BinDatasets <- function(seu, split.by = "time.orig", dims = 1:50,
 #'
 #' @examples
 check_completion <- function(nbs) {
-  unique(nbs$unique_types)==length(unique(nbs$ident))
+  length(unique(nbs$unique_types))==length(unique(nbs$ident))
 }
 
 #' Heatmap of bin-annotation overlap
